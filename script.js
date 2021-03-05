@@ -1,8 +1,18 @@
 import * as elements from "/elements.js";
 let cels = true;
-let location = "Jakarta";
-const api = `https://api.weatherapi.com/v1/current.json?key=4b35052eaeae47e3a5e112630210503&q=${location}&aqi=no`;
+let location = "Hong kong";
 
+
+let apiData = location => {
+
+    fetch(`https://api.weatherapi.com/v1/current.json?key=4b35052eaeae47e3a5e112630210503&q=${location}&aqi=no`)
+        .then(res => {
+            return res.json();
+        }).then(data =>{
+            console.log(data);
+        })
+}
+apiData("Berlin");
 
 window.addEventListener('load', ()=> {
     let long;
@@ -14,7 +24,7 @@ window.addEventListener('load', ()=> {
             lat = position.coords.latitude;
 
             //const proxy = "https://cors-anywhere.herokuapp.com/";
-            fetch(api)
+            fetch(`https://api.weatherapi.com/v1/current.json?key=4b35052eaeae47e3a5e112630210503&q=${lat},${long}&aqi=no`)
                 .then(response => {
                     return response.json();
                 })
@@ -43,5 +53,6 @@ window.addEventListener('load', ()=> {
             
         })
     }
+
 });
 
