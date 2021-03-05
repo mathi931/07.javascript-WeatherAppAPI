@@ -28,6 +28,10 @@ body{
 .temperature-container{
 flex-direction: column;
 }
+.temperature-container span {
+    font-size: 30px;
+    margin-left: 5px;
+    }
 
 .degree-container
 {
@@ -36,7 +40,7 @@ flex-direction: column;
     cursor: pointer;
 }
 
-.degree-container span {
+.degree-container img {
     margin: 10px;
     font-size: 30px;
 }
