@@ -1,6 +1,7 @@
 import * as elements from "/elements.js";
 let cels = true;
-let location = "Las Vegas";
+let location = "Jakarta";
+const api = `https://api.weatherapi.com/v1/current.json?key=4b35052eaeae47e3a5e112630210503&q=${location}&aqi=no`;
 
 
 window.addEventListener('load', ()=> {
@@ -13,15 +14,11 @@ window.addEventListener('load', ()=> {
             lat = position.coords.latitude;
 
             //const proxy = "https://cors-anywhere.herokuapp.com/";
-
-            const api = `https://api.weatherapi.com/v1/current.json?key=4b35052eaeae47e3a5e112630210503&q=${location}&aqi=no`;
-
             fetch(api)
                 .then(response => {
                     return response.json();
                 })
                 .then(data => {
-                    console.log(data);
 
                     elements.temperatureValue.innerHTML = data.current.temp_c;
                     elements.temperatureUnit.innerHTML = "°C";
